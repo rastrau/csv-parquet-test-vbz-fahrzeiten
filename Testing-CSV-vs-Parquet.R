@@ -10,13 +10,14 @@ download.file(url = url, destfile = filename)
 
 # Load CSV
 tic("Loading CSV without column specifications")
-df <- read_delim(in_file)
+df <- read_csv(filename)
 toc()
+str(df)
 
 # Load CSV while indicating attributes of type 'date'
 tic("Loading CSV with column specifications for 'date' attributes")
-df2 <- read_delim(
-  in_file,
+df2 <- read_csv(
+  filename,
   col_types = cols(
     betriebsdatum = col_date(format = "%d.%m.%y"),
     datum_von = col_date(format = "%d.%m.%y"),
@@ -27,8 +28,8 @@ toc()
 
 # Load CSV while indicating all attribute types
 tic("Loading CSV with column specifications for all attributes")
-df3 <- read_delim(
-  in_file,
+df3 <- read_csv(
+  filename,
   col_types = cols(
     linie = col_integer(),
     richtung = col_integer(),
