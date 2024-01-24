@@ -84,15 +84,15 @@ reading_csv = microbenchmark(
   times = 10)
 
 reading_csv
-comparison1 <- microbenchmark:::boxplot.microbenchmark(reading_csv)
+microbenchmark:::boxplot.microbenchmark(reading_csv)
 
-reading_csv = microbenchmark(
-  'Read CSV w/o specs' = read_csv_without_specifications(),
+reading_csv2 = microbenchmark(
   'Read CSV w/ specs based on all' = read_csv_specifications_using_all(),
-  times = 5)
+  'Read CSV w/o specs' = read_csv_without_specifications(),
+  times = 10)
 
-reading_csv
-comparison2 <- microbenchmark:::boxplot.microbenchmark(reading_csv)
+reading_csv2
+microbenchmark:::boxplot.microbenchmark(reading_csv2)
 
 
 # Look at size of objects (dataframes) in memory
@@ -117,10 +117,10 @@ reading_parquet = microbenchmark(
   'Read Parquet w/o specs' = read_parquet("parquet-test--df.parquet"),
   'Read Parquet w/ date specs' = read_parquet("parquet-test--df2.parquet"),
   'Read Parquet w/ all specs' = read_parquet("parquet-test--df3.parquet"),
-  times = 100)
+  times = 10)
 
 reading_parquet
-comparison3 <- microbenchmark:::boxplot.microbenchmark(reading_parquet)
+microbenchmark:::boxplot.microbenchmark(reading_parquet)
 
 reading_csv_and_parquet = microbenchmark(
   'Read CSV w/o specs' = read_csv_without_specifications(),
@@ -128,5 +128,4 @@ reading_csv_and_parquet = microbenchmark(
   times = 10)
 
 reading_csv_and_parquet
-comparison4 <- microbenchmark:::boxplot.microbenchmark(reading_csv_and_parquet)
-
+microbenchmark:::boxplot.microbenchmark(reading_csv_and_parquet)
