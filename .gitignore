@@ -47,4 +47,5 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
-fahrzeiten_soll_ist_20221225_20221231.csv
+*.csv
+*.parquet
