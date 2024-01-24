@@ -1,4 +1,3 @@
-library(tictoc)
 library(microbenchmark)
 library(readr)
 library(arrow)
@@ -87,6 +86,15 @@ reading_csv = microbenchmark(
 
 reading_csv
 microbenchmark:::boxplot.microbenchmark(reading_csv)
+
+reading_csv = microbenchmark(
+  'Read CSV w/o specs' = read_csv_without_specifications(),
+  'Read CSV w/ specs based on all' = read_csv_specifications_using_all(),
+  times = 10)
+
+reading_csv
+microbenchmark:::boxplot.microbenchmark(reading_csv)
+
 
 # Look at size of objects (dataframes) in memory
 df = read_csv_without_specifications()
