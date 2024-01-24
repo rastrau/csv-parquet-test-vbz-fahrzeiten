@@ -112,6 +112,9 @@ write_parquet(df3, "parquet-test--df3.parquet")
 df_ <- read_parquet("parquet-test--df.parquet")
 df2_ <- read_parquet("parquet-test--df2.parquet")
 df3_ <- read_parquet("parquet-test--df3.parquet")
+object.size(df_)
+object.size(df2_)
+object.size(df3_)
 
 reading_parquet = microbenchmark(
   'Read Parquet w/o specs' = read_parquet("parquet-test--df.parquet"),
